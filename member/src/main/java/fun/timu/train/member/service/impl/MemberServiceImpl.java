@@ -1,6 +1,8 @@
 package fun.timu.train.member.service.impl;
 
 import cn.hutool.core.collection.CollUtil;
+import cn.hutool.core.util.IdUtil;
+import cn.hutool.core.util.ObjectUtil;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import fun.timu.train.commo.exception.BusinessException;
@@ -40,12 +42,12 @@ public class MemberServiceImpl extends ServiceImpl<MemberMapper, Member>
         queryWrapper.like("mobile", mobile);
         List<Member> list = mapper.selectList(queryWrapper);
         // 手机号已被注册
-        if (CollUtil.isEmpty(list)) {
+        if (ObjectUtil.isNull(list)) {
             throw new BusinessException(BusinessExceptionCode.MEMBER_MOBILE_EXIST);
         }
 
         Member member = new Member();
-        member.setId(System.currentTimeMillis());
+        member.setId(IdUtil.getSnowflakeNextId());
         member.setMobile(mobile.getMobile());
         mapper.insert(member);
         return member.getId();

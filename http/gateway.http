@@ -6,7 +6,7 @@ POST http://localhost:8000/member/member/register
 Content-Type:application/json
 
 {
-  "mobile": "19816896295"
+  "mobile": "19816896291"
 }
 
 ###
