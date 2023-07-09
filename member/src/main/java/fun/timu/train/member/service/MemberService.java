@@ -9,5 +9,5 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * @createDate 2023-07-09 21:05:19
  */
 public interface MemberService extends IService<Member> {
-    int countMember();
+    long count();
 }

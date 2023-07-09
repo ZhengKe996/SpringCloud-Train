@@ -4,7 +4,6 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import fun.timu.train.member.entity.Member;
 import fun.timu.train.member.mapper.MemberMapper;
 import fun.timu.train.member.service.MemberService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
@@ -15,17 +14,17 @@ import org.springframework.stereotype.Service;
 @Service
 public class MemberServiceImpl extends ServiceImpl<MemberMapper, Member>
         implements MemberService {
-    private final MemberMapper mapper;
+    private final MemberMapper memberMapper;
 
 
     public MemberServiceImpl(MemberMapper mapper) {
-        this.mapper = mapper;
+        this.memberMapper = mapper;
     }
 
 
     @Override
-    public int countMember() {
-        return mapper.countMember();
+    public long count() {
+        return memberMapper.selectCount(null);
     }
 }
 

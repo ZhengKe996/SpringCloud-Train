@@ -12,7 +12,6 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public interface MemberMapper extends BaseMapper<Member> {
-    int countMember();
 }
 
 
