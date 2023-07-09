@@ -3,6 +3,7 @@ package fun.timu.train.member.controller;
 import fun.timu.train.commo.response.BaseResponse;
 import fun.timu.train.member.request.MemberRegisterRequest;
 import fun.timu.train.member.service.MemberService;
+import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -22,7 +23,7 @@ public class MemberController {
     }
 
     @PostMapping("/register")
-    public BaseResponse register(@RequestBody MemberRegisterRequest mobile) {
+    public BaseResponse register(@Valid @RequestBody MemberRegisterRequest mobile) {
         long id = this.memberService.register(mobile);
 
         return new BaseResponse<>(id);
