@@ -2,6 +2,7 @@ package fun.timu.train.member.service;
 
 import fun.timu.train.member.entity.Member;
 import com.baomidou.mybatisplus.extension.service.IService;
+import fun.timu.train.member.request.MemberRegisterRequest;
 
 /**
  * @author zhengke
@@ -11,5 +12,5 @@ import com.baomidou.mybatisplus.extension.service.IService;
 public interface MemberService extends IService<Member> {
     long count();
 
-    long register(String mobile);
+    long register(MemberRegisterRequest mobile);
 }

@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import fun.timu.train.member.entity.Member;
 import fun.timu.train.member.mapper.MemberMapper;
+import fun.timu.train.member.request.MemberRegisterRequest;
 import fun.timu.train.member.service.MemberService;
 import org.springframework.stereotype.Service;
 
@@ -32,7 +33,7 @@ public class MemberServiceImpl extends ServiceImpl<MemberMapper, Member>
     }
 
     @Override
-    public long register(String mobile) {
+    public long register(MemberRegisterRequest mobile) {
         QueryWrapper<Member> queryWrapper = new QueryWrapper<>();
         queryWrapper.like("mobile", mobile);
         List<Member> list = mapper.selectList(queryWrapper);
@@ -45,7 +46,7 @@ public class MemberServiceImpl extends ServiceImpl<MemberMapper, Member>
 
         Member member = new Member();
         member.setId(System.currentTimeMillis());
-        member.setMobile(mobile);
+        member.setMobile(mobile.getMobile());
         mapper.insert(member);
         return member.getId();
     }

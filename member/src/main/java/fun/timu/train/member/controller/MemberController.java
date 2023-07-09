@@ -1,10 +1,9 @@
 package fun.timu.train.member.controller;
 
+import fun.timu.train.commo.response.BaseResponse;
+import fun.timu.train.member.request.MemberRegisterRequest;
 import fun.timu.train.member.service.MemberService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/member")
@@ -17,12 +16,15 @@ public class MemberController {
     }
 
     @GetMapping("/count")
-    public long count() {
-        return this.memberService.count();
+    public BaseResponse count() {
+        long count = this.memberService.count();
+        return new BaseResponse(count);
     }
 
     @PostMapping("/register")
-    public long register(String mobile) {
-        return this.memberService.register(mobile);
+    public BaseResponse register(@RequestBody MemberRegisterRequest mobile) {
+        long id = this.memberService.register(mobile);
+
+        return new BaseResponse<>(id);
     }
 }
