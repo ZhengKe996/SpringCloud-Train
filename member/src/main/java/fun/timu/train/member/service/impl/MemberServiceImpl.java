@@ -14,17 +14,26 @@ import org.springframework.stereotype.Service;
 @Service
 public class MemberServiceImpl extends ServiceImpl<MemberMapper, Member>
         implements MemberService {
-    private final MemberMapper memberMapper;
+    private final MemberMapper mapper;
 
 
     public MemberServiceImpl(MemberMapper mapper) {
-        this.memberMapper = mapper;
+        this.mapper = mapper;
     }
 
 
     @Override
     public long count() {
-        return memberMapper.selectCount(null);
+        return mapper.selectCount(null);
+    }
+
+    @Override
+    public long register(String mobile) {
+        Member member = new Member();
+        member.setId(System.currentTimeMillis());
+        member.setMobile(mobile);
+        mapper.insert(member);
+        return member.getId();
     }
 }
 
