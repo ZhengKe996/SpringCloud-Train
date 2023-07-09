@@ -1,4 +1,4 @@
-package fun.timu.member;
+package fun.timu.train.member;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;

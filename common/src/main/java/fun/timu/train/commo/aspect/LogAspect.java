@@ -1,4 +1,4 @@
-package fun.timu.commo.aspect;
+package fun.timu.train.commo.aspect;
 
 
 import com.alibaba.fastjson.support.spring.PropertyPreFilters;
