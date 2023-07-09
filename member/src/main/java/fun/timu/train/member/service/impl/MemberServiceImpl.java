@@ -1,10 +1,14 @@
 package fun.timu.train.member.service.impl;
 
+import cn.hutool.core.collection.CollUtil;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import fun.timu.train.member.entity.Member;
 import fun.timu.train.member.mapper.MemberMapper;
 import fun.timu.train.member.service.MemberService;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * @author zhengke
@@ -29,6 +33,16 @@ public class MemberServiceImpl extends ServiceImpl<MemberMapper, Member>
 
     @Override
     public long register(String mobile) {
+        QueryWrapper<Member> queryWrapper = new QueryWrapper<>();
+        queryWrapper.like("mobile", mobile);
+        List<Member> list = mapper.selectList(queryWrapper);
+
+        // 手机号已被注册
+        if (CollUtil.isNotEmpty(list)) {
+//            return list.get(0).getId();
+            throw new RuntimeException("手机号已注册");
+        }
+
         Member member = new Member();
         member.setId(System.currentTimeMillis());
         member.setMobile(mobile);
