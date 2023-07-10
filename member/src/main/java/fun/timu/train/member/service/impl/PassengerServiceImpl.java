@@ -4,6 +4,7 @@ import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.date.DateTime;
 import cn.hutool.core.util.ObjectUtil;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import fun.timu.train.commo.context.LoginMemberContext;
 import fun.timu.train.commo.utils.SnowUtil;
 import fun.timu.train.member.entity.Passenger;
 import fun.timu.train.member.mapper.PassengerMapper;
@@ -35,7 +36,7 @@ public class PassengerServiceImpl extends ServiceImpl<PassengerMapper, Passenger
         Passenger passenger = BeanUtil.copyProperties(passengerSaveVO, Passenger.class);
 
         if (ObjectUtil.isNull(passenger.getId())) {
-//            passenger.setMemberId(LoginMemberContext.getId());
+            passenger.setMemberId(LoginMemberContext.getId());
             passenger.setId(SnowUtil.getSnowflakeNextId());
             passenger.setCreateTime(now);
             passenger.setUpdateTime(now);
