@@ -1,5 +1,6 @@
 package fun.timu.train.member.service.impl;
 
+import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.util.IdUtil;
 import cn.hutool.core.util.ObjectUtil;
@@ -8,11 +9,14 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import fun.timu.train.commo.exception.BusinessException;
 import fun.timu.train.commo.exception.BusinessExceptionCode;
+import fun.timu.train.commo.utils.JwtUtil;
 import fun.timu.train.commo.utils.SnowUtil;
 import fun.timu.train.member.entity.Member;
 import fun.timu.train.member.mapper.MemberMapper;
+import fun.timu.train.member.request.MemberLoginRequest;
 import fun.timu.train.member.request.MemberRegisterRequest;
 import fun.timu.train.member.request.MemberSendCodeRequest;
+import fun.timu.train.member.response.MemberLoginResponse;
 import fun.timu.train.member.service.MemberService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -69,8 +73,32 @@ public class MemberServiceImpl extends ServiceImpl<MemberMapper, Member>
             member.setMobile(mobile);
             mapper.insert(member);
         }
-        String code = RandomUtil.randomNumbers(4);
+//        String code = RandomUtil.randomNumbers(4);
+        String code = "8888";
         LOG.info("生成短信验证码：{}", code);// 保存短信记录表：手机号、短信验证码、有效期、是否已使用、业务类型、发送时间、使用时间
+    }
+
+    @Override
+    public MemberLoginResponse login(MemberLoginRequest request) {
+        String mobile = request.getMobile();
+        String code = request.getCode();
+        Member select = this.selectByMobile(mobile);
+
+        // 手机号不存在 则报错
+        if (ObjectUtil.isNull(select)) {
+            throw new BusinessException(BusinessExceptionCode.MEMBER_MOBILE_NOT_EXIST);
+        }
+
+        // 校验短信验证码
+        if (!"8888".equals(code)) {
+            throw new BusinessException(BusinessExceptionCode.MEMBER_MOBILE_CODE_ERROR);
+        }
+
+        // 生成Token
+        String token = JwtUtil.createToken(select.getId(), select.getMobile());
+        MemberLoginResponse response = BeanUtil.copyProperties(select, MemberLoginResponse.class);
+        response.setToken(token);
+        return response;
     }
 
     private Member selectByMobile(String mobile) {

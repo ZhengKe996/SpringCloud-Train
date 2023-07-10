@@ -2,8 +2,10 @@ package fun.timu.train.member.service;
 
 import fun.timu.train.member.entity.Member;
 import com.baomidou.mybatisplus.extension.service.IService;
+import fun.timu.train.member.request.MemberLoginRequest;
 import fun.timu.train.member.request.MemberRegisterRequest;
 import fun.timu.train.member.request.MemberSendCodeRequest;
+import fun.timu.train.member.response.MemberLoginResponse;
 
 /**
  * @author zhengke
@@ -15,5 +17,7 @@ public interface MemberService extends IService<Member> {
 
     long register(MemberRegisterRequest mobile);
 
-    void sendCode(MemberSendCodeRequest mobile);
+    void sendCode(MemberSendCodeRequest request);
+
+    MemberLoginResponse login(MemberLoginRequest request);
 }
