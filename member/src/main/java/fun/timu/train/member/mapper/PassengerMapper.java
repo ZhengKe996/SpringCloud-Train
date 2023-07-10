@@ -2,6 +2,7 @@ package fun.timu.train.member.mapper;
 
 import fun.timu.train.member.entity.Passenger;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import org.springframework.stereotype.Repository;
 
 /**
  * @author zhengke
@@ -9,6 +10,7 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  * @createDate 2023-07-09 21:05:20
  * @Entity generator.entity.Passenger
  */
+@Repository
 public interface PassengerMapper extends BaseMapper<Passenger> {
 
 }

@@ -1,5 +1,21 @@
+POST  http://localhost:8000/member/member/login
+Content-Type:application/json
+
+{
+  "mobile": "19816896292",
+  "code": "8888"
+}
+
+> {%
+    client.log(JSON.stringify(response.body));
+    client.log(JSON.stringify(response.body.data.token));
+    client.global.set("token", response.body.data.token);
+%}
+
+###
 GET http://localhost:8000/member/member/count
 Accept: application/json
+token: {{token}}
 
 ###
 POST http://localhost:8000/member/member/register
@@ -20,12 +36,15 @@ Content-Type:application/json
 
 ###
 
-POST  http://localhost:8000/member/member/login
+POST http://localhost:8000/member/passenger/save
 Content-Type:application/json
+token: {{token}}
 
 {
-  "mobile": "19816896292",
-  "code": "8888"
+  "memberId": "1",
+  "name": "test",
+  "idCard": "1234567",
+  "type": "1"
 }
 
 ###

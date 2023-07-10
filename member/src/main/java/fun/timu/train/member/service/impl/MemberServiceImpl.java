@@ -4,7 +4,6 @@ import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.util.IdUtil;
 import cn.hutool.core.util.ObjectUtil;
-import cn.hutool.core.util.RandomUtil;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import fun.timu.train.commo.exception.BusinessException;
@@ -13,9 +12,9 @@ import fun.timu.train.commo.utils.JwtUtil;
 import fun.timu.train.commo.utils.SnowUtil;
 import fun.timu.train.member.entity.Member;
 import fun.timu.train.member.mapper.MemberMapper;
-import fun.timu.train.member.request.MemberLoginRequest;
-import fun.timu.train.member.request.MemberRegisterRequest;
-import fun.timu.train.member.request.MemberSendCodeRequest;
+import fun.timu.train.member.request.MemberLoginVO;
+import fun.timu.train.member.request.MemberRegisterVO;
+import fun.timu.train.member.request.MemberSendCodeVO;
 import fun.timu.train.member.response.MemberLoginResponse;
 import fun.timu.train.member.service.MemberService;
 import org.slf4j.Logger;
@@ -48,7 +47,7 @@ public class MemberServiceImpl extends ServiceImpl<MemberMapper, Member>
     }
 
     @Override
-    public long register(MemberRegisterRequest mobile) {
+    public long register(MemberRegisterVO mobile) {
         Member select = this.selectByMobile(mobile.getMobile());
         // 手机号已被注册
         if (ObjectUtil.isNotNull(select)) {
@@ -63,7 +62,7 @@ public class MemberServiceImpl extends ServiceImpl<MemberMapper, Member>
     }
 
     @Override
-    public void sendCode(MemberSendCodeRequest request) {
+    public void sendCode(MemberSendCodeVO request) {
         String mobile = request.getMobile();
         Member select = this.selectByMobile(mobile);
         if (ObjectUtil.isNull(select)) {
@@ -79,7 +78,7 @@ public class MemberServiceImpl extends ServiceImpl<MemberMapper, Member>
     }
 
     @Override
-    public MemberLoginResponse login(MemberLoginRequest request) {
+    public MemberLoginResponse login(MemberLoginVO request) {
         String mobile = request.getMobile();
         String code = request.getCode();
         Member select = this.selectByMobile(mobile);
