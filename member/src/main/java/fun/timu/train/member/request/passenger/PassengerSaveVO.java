@@ -1,4 +1,4 @@
-package fun.timu.train.member.request;
+package fun.timu.train.member.request.passenger;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Getter;

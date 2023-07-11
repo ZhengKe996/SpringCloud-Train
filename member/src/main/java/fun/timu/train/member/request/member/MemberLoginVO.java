@@ -1,4 +1,4 @@
-package fun.timu.train.member.request;
+package fun.timu.train.member.request.member;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;

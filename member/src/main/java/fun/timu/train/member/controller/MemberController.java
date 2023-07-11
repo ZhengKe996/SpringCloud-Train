@@ -1,9 +1,9 @@
 package fun.timu.train.member.controller;
 
 import fun.timu.train.commo.response.BaseResponse;
-import fun.timu.train.member.request.MemberLoginVO;
-import fun.timu.train.member.request.MemberRegisterVO;
-import fun.timu.train.member.request.MemberSendCodeVO;
+import fun.timu.train.member.request.member.MemberLoginVO;
+import fun.timu.train.member.request.member.MemberRegisterVO;
+import fun.timu.train.member.request.member.MemberSendCodeVO;
 import fun.timu.train.member.response.MemberLoginResponse;
 import fun.timu.train.member.service.MemberService;
 import jakarta.validation.Valid;

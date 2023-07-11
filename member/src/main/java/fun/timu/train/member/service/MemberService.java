@@ -2,9 +2,9 @@ package fun.timu.train.member.service;
 
 import fun.timu.train.member.entity.Member;
 import com.baomidou.mybatisplus.extension.service.IService;
-import fun.timu.train.member.request.MemberLoginVO;
-import fun.timu.train.member.request.MemberRegisterVO;
-import fun.timu.train.member.request.MemberSendCodeVO;
+import fun.timu.train.member.request.member.MemberLoginVO;
+import fun.timu.train.member.request.member.MemberRegisterVO;
+import fun.timu.train.member.request.member.MemberSendCodeVO;
 import fun.timu.train.member.response.MemberLoginResponse;
 
 /**

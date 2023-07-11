@@ -1,4 +1,4 @@
-package fun.timu.train.member.request;
+package fun.timu.train.member.request.passenger;
 
 import fun.timu.train.commo.request.PageVO;
 import lombok.Getter;
