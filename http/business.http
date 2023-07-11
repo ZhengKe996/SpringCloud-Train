@@ -1,0 +1,31 @@
+GET http://localhost:8000/business/station/query-all
+Accept: application/json
+token: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYmYiOjE2ODkwNjQ1MzEsIm1vYmlsZSI6IjE5ODE2ODk2MjkyIiwiaWQiOjE2NzgzMTMyMzEzMjk5MjMwNzIsImV4cCI6MTY4OTE1MDkzMSwiaWF0IjoxNjg5MDY0NTMxfQ.tFVRJCSpDvMphpvGcJOWKKh-gxV3UODs6gjl-maD188
+
+###
+
+GET http://localhost:8000/business/admin/station/query-all
+Accept: application/json
+
+###
+GET http://localhost:8000/business/admin/station/query-list?page=1&size=10
+Accept: application/json
+
+###
+DELETE http://localhost:8000/business/admin/station/delete/
+Accept: application/json
+
+###
+POST http://localhost:8000/business/admin/station/save
+Content-Type:application/json
+token: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYmYiOjE2ODkwNjQ1MzEsIm1vYmlsZSI6IjE5ODE2ODk2MjkyIiwiaWQiOjE2NzgzMTMyMzEzMjk5MjMwNzIsImV4cCI6MTY4OTE1MDkzMSwiaWF0IjoxNjg5MDY0NTMxfQ.tFVRJCSpDvMphpvGcJOWKKh-gxV3UODs6gjl-maD188
+
+{
+  "name": "测试",
+  "namePinyin": "Demo",
+  "namePy": "D"
+}
+
+###
+
+
