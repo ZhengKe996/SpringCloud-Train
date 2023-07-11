@@ -1,4 +1,4 @@
-package fun.timu.train.member;
+package fun.timu.train.business;
 
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
@@ -8,8 +8,8 @@ import org.springframework.context.annotation.ComponentScan;
 @ComponentScan("fun.timu")
 @MapperScan("fun.timu.train.*.mapper")
 @SpringBootApplication
-public class MemberApplication {
+public class BusinessApplication {
     public static void main(String[] args) {
-        SpringApplication.run(MemberApplication.class, args);
+        SpringApplication.run(BusinessApplication.class, args);
     }
 }
