@@ -74,6 +74,11 @@ public class PassengerServiceImpl extends ServiceImpl<PassengerMapper, Passenger
         response.setList(list);
         return response;
     }
+
+    @Override
+    public void delete(Long id) {
+        mapper.deleteById(id);
+    }
 }
 
 

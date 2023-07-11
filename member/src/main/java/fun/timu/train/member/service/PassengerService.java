@@ -16,4 +16,5 @@ public interface PassengerService extends IService<Passenger> {
     void save(PassengerSaveVO passengerSaveVO);
 
     PageResponse<PassengerQueryResponse> queryList(PassengerQueryVO queryVO);
+     void delete(Long id);
 }

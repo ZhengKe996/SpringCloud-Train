@@ -33,5 +33,11 @@ public class PassengerController {
         return new BaseResponse<>(list);
     }
 
+    @DeleteMapping("/delete/{id}")
+    public BaseResponse delete(@PathVariable Long id) {
+        this.service.delete(id);
+        return new BaseResponse<>();
+    }
+
 
 }
