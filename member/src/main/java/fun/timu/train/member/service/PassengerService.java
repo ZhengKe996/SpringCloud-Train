@@ -1,8 +1,11 @@
 package fun.timu.train.member.service;
 
+import fun.timu.train.commo.response.PageResponse;
 import fun.timu.train.member.entity.Passenger;
 import com.baomidou.mybatisplus.extension.service.IService;
+import fun.timu.train.member.request.PassengerQueryVO;
 import fun.timu.train.member.request.PassengerSaveVO;
+import fun.timu.train.member.response.PassengerQueryResponse;
 
 /**
  * @author zhengke
@@ -11,4 +14,6 @@ import fun.timu.train.member.request.PassengerSaveVO;
  */
 public interface PassengerService extends IService<Passenger> {
     void save(PassengerSaveVO passengerSaveVO);
+
+    PageResponse<PassengerQueryResponse> queryList(PassengerQueryVO queryVO);
 }
