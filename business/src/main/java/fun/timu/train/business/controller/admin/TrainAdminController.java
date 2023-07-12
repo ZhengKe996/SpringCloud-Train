@@ -2,7 +2,7 @@ package fun.timu.train.business.controller.admin;
 
 import fun.timu.train.business.request.train.TrainQueryVO;
 import fun.timu.train.business.request.train.TrainSaveVO;
-import fun.timu.train.business.response.TrainQueryResponse;
+import fun.timu.train.business.response.train.TrainQueryResponse;
 import fun.timu.train.business.service.TrainService;
 import fun.timu.train.commo.response.BaseResponse;
 import fun.timu.train.commo.response.PageResponse;

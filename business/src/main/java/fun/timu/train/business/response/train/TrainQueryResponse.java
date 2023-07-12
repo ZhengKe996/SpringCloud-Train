@@ -1,4 +1,4 @@
-package fun.timu.train.business.response;
+package fun.timu.train.business.response.train;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;

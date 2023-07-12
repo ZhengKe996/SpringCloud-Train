@@ -12,7 +12,7 @@ import fun.timu.train.business.entity.Train;
 import fun.timu.train.business.mapper.TrainMapper;
 import fun.timu.train.business.request.train.TrainQueryVO;
 import fun.timu.train.business.request.train.TrainSaveVO;
-import fun.timu.train.business.response.TrainQueryResponse;
+import fun.timu.train.business.response.train.TrainQueryResponse;
 import fun.timu.train.business.service.TrainService;
 import fun.timu.train.commo.exception.BusinessException;
 import fun.timu.train.commo.exception.BusinessExceptionCode;

@@ -1,6 +1,6 @@
 package fun.timu.train.business.controller;
 
-import fun.timu.train.business.response.TrainQueryResponse;
+import fun.timu.train.business.response.train.TrainQueryResponse;
 import fun.timu.train.business.service.TrainService;
 import fun.timu.train.commo.response.BaseResponse;
 import org.springframework.web.bind.annotation.GetMapping;

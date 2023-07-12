@@ -2,6 +2,7 @@ package fun.timu.train.business.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import fun.timu.train.business.entity.TrainStation;
+import org.springframework.stereotype.Repository;
 
 /**
  * @author zhengke
@@ -9,6 +10,7 @@ import fun.timu.train.business.entity.TrainStation;
  * @createDate 2023-07-11 15:21:07
  * @Entity .entity.TrainStation
  */
+@Repository
 public interface TrainStationMapper extends BaseMapper<TrainStation> {
 
 }

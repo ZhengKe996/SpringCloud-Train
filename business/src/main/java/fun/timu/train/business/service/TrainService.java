@@ -4,7 +4,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
 import fun.timu.train.business.entity.Train;
 import fun.timu.train.business.request.train.TrainQueryVO;
 import fun.timu.train.business.request.train.TrainSaveVO;
-import fun.timu.train.business.response.TrainQueryResponse;
+import fun.timu.train.business.response.train.TrainQueryResponse;
 import fun.timu.train.commo.response.PageResponse;
 
 import java.util.List;
