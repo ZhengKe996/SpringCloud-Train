@@ -3,6 +3,7 @@ package fun.timu.train.business.controller.admin;
 import fun.timu.train.business.request.train.TrainQueryVO;
 import fun.timu.train.business.request.train.TrainSaveVO;
 import fun.timu.train.business.response.train.TrainQueryResponse;
+import fun.timu.train.business.service.TrainSeatService;
 import fun.timu.train.business.service.TrainService;
 import fun.timu.train.commo.response.BaseResponse;
 import fun.timu.train.commo.response.PageResponse;
@@ -15,10 +16,13 @@ import java.util.List;
 @RequestMapping("/admin/train")
 public class TrainAdminController {
     private final TrainService service;
+    private final TrainSeatService seatService;
 
-    public TrainAdminController(TrainService service) {
+    public TrainAdminController(TrainService service, TrainSeatService seatService) {
         this.service = service;
+        this.seatService = seatService;
     }
+
 
     @PostMapping("/save")
     public BaseResponse save(@Valid @RequestBody TrainSaveVO saveVO) {
@@ -46,7 +50,7 @@ public class TrainAdminController {
 
     @GetMapping("/gen-seat/{trainCode}")
     public BaseResponse genSeat(@PathVariable String trainCode) {
-
+        this.seatService.genTrainSeat(trainCode);
         return new BaseResponse<>();
     }
 }

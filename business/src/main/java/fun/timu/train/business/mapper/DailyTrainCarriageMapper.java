@@ -2,6 +2,7 @@ package fun.timu.train.business.mapper;
 
 import fun.timu.train.business.entity.DailyTrainCarriage;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import org.springframework.stereotype.Repository;
 
 /**
  * @author zhengke
@@ -9,6 +10,7 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  * @createDate 2023-07-11 15:21:07
  * @Entity .entity.DailyTrainCarriage
  */
+@Repository
 public interface DailyTrainCarriageMapper extends BaseMapper<DailyTrainCarriage> {
 
 }
