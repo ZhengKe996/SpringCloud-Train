@@ -1,0 +1,14 @@
+server:
+  port: 8003
+  servlet:
+    context-path: "/batch"
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/train-batch?useSSL=false&serverTimezone=Hongkong&characterEncoding=utf-8&autoReconnect=true&allowMultiQueries=true
+    username: train_batch
+    password: 123456
+
+mybatis-plus:
+  mapper-locations: classpath:mapper/**/*.xml
