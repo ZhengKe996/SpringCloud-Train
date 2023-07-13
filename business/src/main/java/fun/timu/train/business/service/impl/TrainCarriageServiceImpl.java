@@ -71,7 +71,7 @@ public class TrainCarriageServiceImpl extends ServiceImpl<TrainCarriageMapper, T
     private TrainCarriage selectByUnique(String trainCode, Integer index) {
         QueryWrapper<TrainCarriage> queryWrapper = new QueryWrapper<>();
         queryWrapper.eq(ObjectUtil.isNotNull(trainCode), "train_code", trainCode);
-        queryWrapper.eq(ObjectUtil.isNotNull(index), "index", index);
+        queryWrapper.eq(ObjectUtil.isNotNull(index), "`index`", index);
 
         List<TrainCarriage> list = this.mapper.selectList(queryWrapper);
 
@@ -86,7 +86,7 @@ public class TrainCarriageServiceImpl extends ServiceImpl<TrainCarriageMapper, T
     public PageResponse<TrainCarriageQueryResponse> queryList(TrainCarriageQueryVO queryVO) {
         QueryWrapper<TrainCarriage> queryWrapper = new QueryWrapper<>();
         queryWrapper.orderByAsc("train_code");
-        queryWrapper.orderByAsc("index");
+        queryWrapper.orderByAsc("`index`");
 
         queryWrapper.eq(ObjectUtil.isNotEmpty(queryVO.getTrainCode()), "train_code", queryVO.getTrainCode());
 
@@ -113,7 +113,7 @@ public class TrainCarriageServiceImpl extends ServiceImpl<TrainCarriageMapper, T
     @Override
     public List<TrainCarriage> selectByTrainCode(String trainCode) {
         QueryWrapper<TrainCarriage> queryWrapper = new QueryWrapper<>();
-        queryWrapper.orderByAsc("index");
+        queryWrapper.orderByAsc("`index`");
         queryWrapper.eq(ObjectUtil.isNotNull(trainCode), "train_code", trainCode);
         return this.mapper.selectList(queryWrapper);
     }
