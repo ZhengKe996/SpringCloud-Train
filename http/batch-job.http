@@ -1,0 +1,64 @@
+POST http://localhost:8000/batch/admin/job/add
+Content-Type: application/json
+
+{
+  "name": "fun.timu.train.batch.job.DailyTrainJob",
+  "group": "default",
+  "description": "test job",
+  "cronExpression": "*/10 * * * * ?"
+}
+
+###
+
+GET http://localhost:8000/batch/admin/job/query
+
+###
+POST http://localhost:8000/batch/admin/job/pause
+Content-Type: application/json
+
+{
+  "name": "fun.timu.train.batch.job.DailyTrainJob",
+  "group": "default"
+}
+
+###
+
+POST http://localhost:8000/batch/admin/job/resume
+Content-Type: application/json
+
+{
+  "name": "fun.timu.train.batch.job.DailyTrainJob",
+  "group": "default"
+}
+
+###
+POST http://localhost:8000/batch/admin/job/reschedule
+Content-Type: application/json
+
+{
+  "name": "fun.timu.train.batch.job.DailyTrainJob",
+  "group": "default",
+  "cronExpression": "*/5 * * * * ?",
+  "desc": "test job"
+}
+
+###
+POST http://localhost:8000/batch/admin/job/delete
+Content-Type: application/json
+
+{
+  "name": "fun.timu.train.batch.job.DailyTrainJob",
+  "group": "default"
+}
+
+###
+
+POST http://localhost:8000/batch/admin/job/run
+Content-Type: application/json
+
+{
+  "name": "fun.timu.train.batch.job.DailyTrainJob",
+  "jobGroupName": "default",
+  "cronExpression": "*/5 * * * * ?",
+  "desc": "DailyTrainJob 生成15天后的车次数据"
+}
