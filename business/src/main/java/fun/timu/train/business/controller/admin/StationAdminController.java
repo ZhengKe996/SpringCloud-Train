@@ -44,4 +44,13 @@ public class StationAdminController {
         List<StationQueryResponse> list = this.service.queryAll();
         return new BaseResponse<>(list);
     }
+
+    @PostMapping("/save-list")
+    public BaseResponse saveAll(@Valid @RequestBody List<StationSaveVO> list) {
+        for (StationSaveVO info : list) {
+            this.service.save(info);
+        }
+        return new BaseResponse();
+    }
+
 }

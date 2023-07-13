@@ -80,7 +80,7 @@ public class TrainSeatServiceImpl extends ServiceImpl<TrainSeatMapper, TrainSeat
         PageResponse<TrainSeatQueryResponse> response = new PageResponse<>();
         response.setTotal(pageInfo.getTotal());
         response.setList(list);
-        return null;
+        return response;
     }
 
     @Override
