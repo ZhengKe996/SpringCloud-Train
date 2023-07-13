@@ -92,7 +92,7 @@ public class TrainStationServiceImpl extends ServiceImpl<TrainStationMapper, Tra
     public PageResponse<TrainStationQueryResponse> queryList(TrainStationQueryVO queryVO) {
         QueryWrapper<TrainStation> queryWrapper = new QueryWrapper<>();
         queryWrapper.orderByAsc("train_code");
-        queryWrapper.orderByAsc("index");
+        queryWrapper.orderByAsc("`index`");
         queryWrapper.eq(ObjectUtil.isNotEmpty(queryVO.getTrainCode()), "train_code", queryVO.getTrainCode());
 
         PageHelper.startPage(queryVO.getPage(), queryVO.getSize());
@@ -118,7 +118,7 @@ public class TrainStationServiceImpl extends ServiceImpl<TrainStationMapper, Tra
     @Override
     public List<TrainStation> selectByTrainCode(String trainCode) {
         QueryWrapper<TrainStation> queryWrapper = new QueryWrapper<>();
-        queryWrapper.orderByAsc("index");
+        queryWrapper.orderByAsc("`index`");
         queryWrapper.eq(ObjectUtil.isNotNull(trainCode), "train_code", trainCode);
 
         return this.mapper.selectList(queryWrapper);
