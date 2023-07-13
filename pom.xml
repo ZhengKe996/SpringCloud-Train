@@ -80,6 +80,13 @@
                 <artifactId>pagehelper-spring-boot-starter</artifactId>
                 <version>1.4.7</version>
             </dependency>
+
+            <!--任务调度框架-->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-quartz</artifactId>
+                <version>3.1.1</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
