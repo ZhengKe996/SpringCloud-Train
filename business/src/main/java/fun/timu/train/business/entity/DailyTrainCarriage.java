@@ -37,6 +37,7 @@ public class DailyTrainCarriage implements Serializable {
     /**
      * 箱序
      */
+    @TableField(value = "`index`")
     private Integer index;
 
     /**

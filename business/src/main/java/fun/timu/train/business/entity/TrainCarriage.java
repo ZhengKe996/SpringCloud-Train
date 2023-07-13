@@ -32,6 +32,7 @@ public class TrainCarriage implements Serializable {
     /**
      * 厢号
      */
+    @TableField(value = "`index`")
     private Integer index;
 
     /**

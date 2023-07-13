@@ -30,8 +30,7 @@ import java.util.List;
  * @createDate 2023-07-11 15:21:07
  */
 @Service
-public class TrainStationServiceImpl extends ServiceImpl<TrainStationMapper, TrainStation>
-        implements TrainStationService {
+public class TrainStationServiceImpl extends ServiceImpl<TrainStationMapper, TrainStation> implements TrainStationService {
     private static final Logger LOG = LoggerFactory.getLogger(TrainStationService.class);
 
     private final TrainStationMapper mapper;
@@ -64,7 +63,7 @@ public class TrainStationServiceImpl extends ServiceImpl<TrainStationMapper, Tra
     private TrainStation selectByUnique(String trainCode, Integer index) {
         QueryWrapper<TrainStation> queryWrapper = new QueryWrapper<>();
         queryWrapper.eq(ObjectUtil.isNotNull(trainCode), "train_code", trainCode);
-        queryWrapper.eq(ObjectUtil.isNotNull(index), "index", index);
+        queryWrapper.eq(ObjectUtil.isNotNull(index), "`index`", index);
 
         List<TrainStation> stations = this.mapper.selectList(queryWrapper);
 

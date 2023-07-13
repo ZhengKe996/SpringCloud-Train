@@ -33,6 +33,7 @@ public class TrainStation implements Serializable {
     /**
      * 站序
      */
+    @TableField(value = "`index`")
     private Integer index;
 
     /**

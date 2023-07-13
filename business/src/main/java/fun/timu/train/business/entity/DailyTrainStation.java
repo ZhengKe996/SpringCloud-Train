@@ -38,6 +38,7 @@ public class DailyTrainStation implements Serializable {
     /**
      * 站序
      */
+    @TableField(value = "`index`")
     private Integer index;
 
     /**
