@@ -2,9 +2,11 @@ package fun.timu.train.commo.response;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 @Getter
 @Setter
+@ToString
 public class BaseResponse<T> {
     /**
      * 业务上的成功或失败

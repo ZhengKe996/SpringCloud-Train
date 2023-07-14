@@ -42,11 +42,13 @@ public class DailyTrainSeat implements Serializable {
     /**
      * 排号|01, 02
      */
+    @TableField(value = "`row`")
     private String row;
 
     /**
      * 列号|枚举[SeatColEnum]
      */
+    @TableField(value = "`col`")
     private String col;
 
     /**
