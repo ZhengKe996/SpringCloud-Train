@@ -3,6 +3,8 @@ server:
 
 # 路由转发，将/member/...的请求转发了member模块
 spring:
+  application:
+    name: "gateway"
   cloud:
     gateway:
       httpserver:
