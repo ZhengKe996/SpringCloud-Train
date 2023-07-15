@@ -21,7 +21,7 @@ public class ConfirmOrderController {
 
     @PostMapping("/do")
     public BaseResponse doConfirm(@Valid @RequestBody ConfirmOrderDoVO doVO) {
-//        confirmOrderService.doConfirm(req);
+        this.service.doConfirm(doVO);
         return new BaseResponse<>();
     }
 }

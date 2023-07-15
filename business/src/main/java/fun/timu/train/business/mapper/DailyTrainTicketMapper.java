@@ -4,6 +4,8 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import fun.timu.train.business.entity.DailyTrainTicket;
 import org.springframework.stereotype.Repository;
 
+import java.util.Date;
+
 /**
  * @author zhengke
  * @description 针对表【daily_train_ticket(余票信息)】的数据库操作Mapper
@@ -12,7 +14,13 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public interface DailyTrainTicketMapper extends BaseMapper<DailyTrainTicket> {
-
+    void updateCountBySell(Date date, String trainCode,
+                           String seatTypeCode,
+                           Integer minStartIndex,
+                           Integer maxStartIndex,
+                           Integer minEndIndex,
+                           Integer maxEndIndex
+    );
 }
 
 

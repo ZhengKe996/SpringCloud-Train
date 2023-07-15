@@ -2,12 +2,14 @@ package fun.timu.train.business.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
 import fun.timu.train.business.entity.DailyTrainCarriage;
+import fun.timu.train.business.entity.TrainCarriage;
 import fun.timu.train.business.request.daily.DailyTrainCarriageQueryVO;
 import fun.timu.train.business.request.daily.DailyTrainCarriageSaveVO;
 import fun.timu.train.business.response.daily.DailyTrainCarriageQueryResponse;
 import fun.timu.train.commo.response.PageResponse;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  * @author zhengke
@@ -22,4 +24,6 @@ public interface DailyTrainCarriageService extends IService<DailyTrainCarriage> 
     void delete(Long id);
 
     void genDaily(Date date, String trainCode);
+
+    public List<DailyTrainCarriage> selectByType(Date date, String trainCode, String seatType);
 }

@@ -23,4 +23,6 @@ public interface DailyTrainTicketService extends IService<DailyTrainTicket> {
     void delete(Long id);
 
     void genDaily(DailyTrain dailyTrain, Date date, String trainCode);
+
+    DailyTrainTicket selectByUnique(Date date, String trainCode, String start, String end);
 }

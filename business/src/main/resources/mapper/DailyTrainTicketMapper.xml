@@ -33,10 +33,35 @@
         ,date,train_code,
         start,start_pinyin,start_time,
         start_index,
-        end,end_pinyin,
+        end
+        ,end_pinyin,
         end_time,end_index,ydz,
         ydz_price,edz,edz_price,
         rw,rw_price,yw,
         yw_price,create_time,update_time
     </sql>
+
+
+    <update id="updateCountBySell">
+        update daily_train_ticket set
+        <if test="seatTypeCode=='1'.toString()">
+            ydz = ydz - 1
+        </if>
+        <if test="seatTypeCode=='2'.toString()">
+            edz = edz - 1
+        </if>
+        <if test="seatTypeCode=='3'.toString()">
+            rw = rw - 1
+        </if>
+        <if test="seatTypeCode=='4'.toString()">
+            yw = yw - 1
+        </if>
+        where `date` = #{date}
+        and train_code = #{trainCode}
+        and start_index =&gt; #{minStartIndex}
+        and start_index =&lt; #{maxStartIndex}
+        and end_index =&gt; #{maxEndIndex}
+        and end_index = &lt;
+        #{maxEndIndex}
+    </update>
 </mapper>
