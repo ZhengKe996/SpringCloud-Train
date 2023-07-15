@@ -133,7 +133,16 @@ public class DailyTrainSeatServiceImpl extends ServiceImpl<DailyTrainSeatMapper,
 
     @Override
     public int countSeat(Date date, String trainCode, String seatType) {
-        return 0;
+        QueryWrapper<DailyTrainSeat> queryWrapper = new QueryWrapper<>();
+
+        queryWrapper.eq("date", date);
+        queryWrapper.eq("seat_type", seatType);
+        queryWrapper.eq("train_code", trainCode);
+        long l = this.mapper.selectCount(queryWrapper);
+        if (l == 0L) {
+            return -1;
+        }
+        return (int) l;
     }
 }
 
