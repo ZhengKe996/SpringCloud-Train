@@ -79,6 +79,18 @@ public class PassengerServiceImpl extends ServiceImpl<PassengerMapper, Passenger
     public void delete(Long id) {
         mapper.deleteById(id);
     }
+
+    /**
+     * 查询我的所有乘客
+     */
+    @Override
+    public List<PassengerQueryResponse> queryMine() {
+        QueryWrapper<Passenger> queryWrapper = new QueryWrapper<>();
+        queryWrapper.orderByAsc("name");
+        queryWrapper.eq("member_id", LoginMemberContext.getId());
+        List<Passenger> list = this.mapper.selectList(queryWrapper);
+        return BeanUtil.copyToList(list, PassengerQueryResponse.class);
+    }
 }
 
 

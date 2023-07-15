@@ -10,6 +10,8 @@ import fun.timu.train.member.service.PassengerService;
 import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/passenger")
 public class PassengerController {
@@ -39,5 +41,10 @@ public class PassengerController {
         return new BaseResponse<>();
     }
 
+    @GetMapping("/query-mine")
+    public BaseResponse<List<PassengerQueryResponse>> queryMine() {
+        List<PassengerQueryResponse> list = this.service.queryMine();
+        return new BaseResponse<>(list);
+    }
 
 }

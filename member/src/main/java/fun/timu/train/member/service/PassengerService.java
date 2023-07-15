@@ -7,6 +7,8 @@ import fun.timu.train.member.request.passenger.PassengerQueryVO;
 import fun.timu.train.member.request.passenger.PassengerSaveVO;
 import fun.timu.train.member.response.PassengerQueryResponse;
 
+import java.util.List;
+
 /**
  * @author zhengke
  * @description 针对表【passenger(乘车人)】的数据库操作Service
@@ -17,4 +19,6 @@ public interface PassengerService extends IService<Passenger> {
 
     PageResponse<PassengerQueryResponse> queryList(PassengerQueryVO queryVO);
      void delete(Long id);
+
+    List<PassengerQueryResponse> queryMine();
 }
