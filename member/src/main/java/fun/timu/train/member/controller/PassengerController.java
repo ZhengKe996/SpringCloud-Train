@@ -8,10 +8,12 @@ import fun.timu.train.member.request.passenger.PassengerSaveVO;
 import fun.timu.train.member.response.PassengerQueryResponse;
 import fun.timu.train.member.service.PassengerService;
 import jakarta.validation.Valid;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@RefreshScope
 @RestController
 @RequestMapping("/passenger")
 public class PassengerController {

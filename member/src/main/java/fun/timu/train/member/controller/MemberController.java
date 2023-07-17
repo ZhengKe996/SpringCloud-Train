@@ -7,8 +7,10 @@ import fun.timu.train.member.request.member.MemberSendCodeVO;
 import fun.timu.train.member.response.MemberLoginResponse;
 import fun.timu.train.member.service.MemberService;
 import jakarta.validation.Valid;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.*;
 
+@RefreshScope
 @RestController
 @RequestMapping("/member")
 public class MemberController {
