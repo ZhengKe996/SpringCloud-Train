@@ -1,16 +1,16 @@
-server:
-  port: 8002
-  servlet:
-    context-path: "/business"
-
-spring:
-  application:
-    name: "business"
-  datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/train-business?useSSL=false&serverTimezone=Hongkong&characterEncoding=utf-8&autoReconnect=true&allowMultiQueries=true
-    username: train_business
-    password: 123456
-
-mybatis-plus:
-  mapper-locations: classpath:mapper/**/*.xml
+#server:
+#  port: 8002
+#  servlet:
+#    context-path: "/business"
+#
+#spring:
+#  application:
+#    name: business
+#  datasource:
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+#    url: jdbc:mysql://localhost:3306/train-business?useSSL=false&serverTimezone=Hongkong&characterEncoding=utf-8&autoReconnect=true&allowMultiQueries=true
+#    username: train_business
+#    password: 123456
+#
+#mybatis-plus:
+#  mapper-locations: classpath:mapper/**/*.xml

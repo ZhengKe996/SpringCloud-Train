@@ -4,10 +4,12 @@ import fun.timu.train.business.entity.DailyTrainSeat;
 import fun.timu.train.business.entity.DailyTrainTicket;
 import fun.timu.train.business.mapper.DailyTrainSeatMapper;
 import fun.timu.train.business.mapper.DailyTrainTicketMapper;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
+@Service
 public class AfterConfirmOrderServiceImpl {
     private final DailyTrainSeatMapper mapper;
     private final DailyTrainTicketMapper dailyTrainTicketMapper;

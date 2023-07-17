@@ -1,7 +1,7 @@
 # SpringCloud的配置文件
 spring:
   application:
-    name: member
+    name: batch
   profiles:
     active: dev
   cloud:
