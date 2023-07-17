@@ -6,6 +6,9 @@ spring:
     active: dev
   cloud:
     nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+        namespace: dfbdf32d-d53f-4ef1-8512-43386d447d93
       config:
         server-addr: 127.0.0.1:8848
         file-extension: yaml
