@@ -4,22 +4,25 @@ server:
 # 路由转发，将/member/...的请求转发了member模块
 spring:
   application:
-    name: "gateway"
+    name: gateway
   cloud:
     gateway:
       httpserver:
         wiretap: true
       routes:
         - id: member
-          uri: http://127.0.0.1:8001
+          #          uri: http://127.0.0.1:8001
+          uri: lb://member
           predicates:
             - Path=/member/**
         - id: business
-          uri: http://127.0.0.1:8002
+          #          uri: http://127.0.0.1:8002
+          uri: lb://business
           predicates:
             - Path=/business/**
         - id: batch
-          uri: http://127.0.0.1:8003
+          #          uri: http://127.0.0.1:8003
+          uri: lb://batch
           predicates:
             - Path=/batch/**
       globalcors:
